@@ -1,0 +1,144 @@
+/* ===== ESTILOS DE LA SECCIÓN CONTACTO ===== */
+
+.contacto {
+  background-color: var(--azul-oscuro);
+}
+
+/* Dos columnas: datos de contacto y formulario */
+.contacto-bloque {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ---------- Columna de datos ---------- */
+.contacto-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radio);
+  padding: 18px 20px;
+  color: var(--blanco);
+  transition: all 0.25s ease;
+}
+
+/* Solo los que son enlaces cambian al pasar el mouse */
+a.contacto-item:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  transform: translateX(6px);
+}
+
+.contacto-icono {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contacto-item strong {
+  display: block;
+  font-family: var(--fuente-titulos);
+  font-size: 0.95rem;
+}
+
+.contacto-item span {
+  color: #cfdcea;
+  font-size: 0.92rem;
+}
+
+/* ---------- Formulario ---------- */
+.formulario {
+  background-color: var(--blanco);
+  border-radius: var(--radio);
+  padding: 34px;
+  box-shadow: var(--sombra-fuerte);
+}
+
+.formulario h3 {
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+/* Dos campos en la misma fila (correo y teléfono) */
+.campo-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.campo label {
+  display: block;
+  font-family: var(--fuente-titulos);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+  margin-bottom: 7px;
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  background-color: var(--gris-fondo);
+  color: var(--texto);
+  resize: vertical; /* El área de texto solo se puede estirar hacia abajo */
+  transition: border-color 0.2s ease;
+}
+
+/* Borde azul cuando el usuario está escribiendo en el campo */
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+  background-color: var(--blanco);
+}
+
+.boton-enviar {
+  width: 100%;
+  justify-content: center;
+}
+
+.nota-formulario {
+  font-size: 0.83rem;
+  color: var(--texto-suave);
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* ---------- VERSIÓN CELULAR ---------- */
+@media (max-width: 900px) {
+  .contacto-bloque {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+
+  .campo-doble {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .formulario {
+    padding: 26px 20px;
+  }
+}

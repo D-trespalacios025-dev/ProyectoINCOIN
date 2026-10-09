@@ -1,0 +1,124 @@
+/* ===== ESTILOS DE LA SECCIÓN INICIO ===== */
+
+.inicio {
+  position: relative; /* Permite colocar la imagen y la capa de color detrás del texto */
+  min-height: 100vh;  /* Ocupa todo el alto de la pantalla */
+  display: flex;
+  align-items: center;
+  padding: 170px 0 80px 0; /* Espacio arriba para que el navbar no tape el texto */
+  overflow: hidden;
+}
+
+/* Imagen de fondo (la dirección de la foto se pasa desde Inicio.jsx) */
+.inicio-fondo {
+  position: absolute;
+  inset: 0; /* Equivale a top:0; right:0; bottom:0; left:0 */
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+}
+
+/* Capa azul semitransparente encima de la foto */
+.inicio-capa {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(18, 49, 79, 0.94) 0%,
+    rgba(18, 49, 79, 0.82) 45%,
+    rgba(18, 49, 79, 0.45) 100%
+  );
+}
+
+/* El contenido va por encima de la imagen y de la capa (z-index mayor) */
+.inicio-contenido {
+  position: relative;
+  z-index: 2;
+  color: var(--blanco);
+  max-width: 820px;
+}
+
+.inicio-etiqueta {
+  display: inline-block;
+  font-family: var(--fuente-titulos);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 8px 16px;
+  border-left: 4px solid var(--amarillo);
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 22px;
+}
+
+.inicio-titulo {
+  color: var(--blanco);
+  font-size: 3rem;
+  margin-bottom: 22px;
+}
+
+/* Palabras destacadas en amarillo dentro del título */
+.resaltado {
+  color: var(--amarillo);
+}
+
+.inicio-texto {
+  font-size: 1.1rem;
+  color: #dbe6f2;
+  max-width: 680px;
+  margin-bottom: 34px;
+}
+
+.inicio-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+/* Fila de datos rápidos debajo de los botones */
+.inicio-datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 26px;
+}
+
+.dato {
+  display: flex;
+  flex-direction: column;
+}
+
+.dato strong {
+  font-family: var(--fuente-titulos);
+  font-size: 1.15rem;
+  color: var(--amarillo);
+}
+
+.dato span {
+  font-size: 0.9rem;
+  color: #cfdcea;
+}
+
+/* ---------- VERSIÓN CELULAR ---------- */
+@media (max-width: 768px) {
+  .inicio {
+    padding-top: 150px;
+  }
+
+  .inicio-titulo {
+    font-size: 1.9rem;
+  }
+
+  .inicio-texto {
+    font-size: 1rem;
+  }
+
+  .inicio-botones {
+    margin-bottom: 40px;
+  }
+
+  .inicio-datos {
+    gap: 22px;
+  }
+}

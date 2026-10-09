@@ -1,0 +1,190 @@
+/* =========================================================
+   ESTILOS GLOBALES DE LA PÁGINA
+   Aquí se define:
+   1. La paleta de colores (tomada del logo de INCOIN)
+   2. Un "reset" básico para que todos los navegadores se vean igual
+   3. Clases que se reutilizan en varias secciones
+   ========================================================= */
+
+/* ---------- 1. VARIABLES DE COLOR ----------
+   Las variables se escriben una sola vez y se usan en todos los archivos CSS
+   con la función var(). Si mañana cambia un color, solo se cambia aquí. */
+:root {
+  --azul-oscuro: #12314f;   /* Azul del logo (color principal) */
+  --azul: #1c4a79;          /* Azul medio, para botones y detalles */
+  --azul-claro: #2f79b8;    /* Azul claro, para enlaces y hover */
+  --amarillo: #f5a524;      /* Amarillo del casco de obra (color de acento) */
+  --amarillo-oscuro: #d98c0c;
+
+  --texto: #1f2933;         /* Color de la mayoría de textos */
+  --texto-suave: #5b6b7c;   /* Textos secundarios (párrafos) */
+  --gris-fondo: #f4f7fa;    /* Fondo gris muy claro para secciones alternas */
+  --gris-borde: #e2e8f0;    /* Bordes de tarjetas */
+  --blanco: #ffffff;
+
+  /* Sombras y bordes redondeados reutilizables */
+  --sombra: 0 8px 24px rgba(18, 49, 79, 0.08);
+  --sombra-fuerte: 0 16px 40px rgba(18, 49, 79, 0.16);
+  --radio: 14px;
+
+  /* Tipografías cargadas en index.html */
+  --fuente-titulos: "Montserrat", sans-serif;
+  --fuente-texto: "Open Sans", sans-serif;
+}
+
+/* ---------- 2. RESET BÁSICO ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* El padding no aumenta el ancho de los elementos */
+}
+
+html {
+  scroll-behavior: smooth;  /* Desplazamiento suave al hacer clic en el menú */
+  scroll-padding-top: 90px; /* Deja espacio para que el navbar fijo no tape el título */
+}
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--texto);
+  background-color: var(--blanco);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block; /* Evita un pequeño espacio en blanco debajo de las imágenes */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+  color: var(--azul-oscuro);
+}
+
+/* ---------- 3. CLASES REUTILIZABLES ---------- */
+
+/* Contenedor: centra el contenido y le pone un ancho máximo */
+.contenedor {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Espaciado estándar de todas las secciones */
+.seccion {
+  padding: 90px 0;
+}
+
+/* Fondo gris claro para alternar secciones y que no se vea plano */
+.seccion-gris {
+  background-color: var(--gris-fondo);
+}
+
+/* Encabezado de sección: etiqueta pequeña + título + subtítulo */
+.encabezado-seccion {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 55px auto;
+}
+
+.etiqueta {
+  display: inline-block;
+  font-family: var(--fuente-titulos);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--azul-claro);
+  margin-bottom: 12px;
+}
+
+.titulo-seccion {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+}
+
+/* Línea amarilla decorativa debajo del título */
+.titulo-seccion::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background-color: var(--amarillo);
+  border-radius: 4px;
+  margin: 16px auto 0 auto;
+}
+
+.subtitulo-seccion {
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+}
+
+/* ---------- BOTONES ---------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 26px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease; /* Animación suave al pasar el mouse */
+}
+
+/* Botón principal (amarillo) */
+.boton-principal {
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+}
+
+.boton-principal:hover {
+  background-color: var(--amarillo-oscuro);
+  transform: translateY(-2px); /* Se levanta un poquito */
+}
+
+/* Botón secundario (borde blanco, fondo transparente) */
+.boton-secundario {
+  background-color: transparent;
+  color: var(--blanco);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.boton-secundario:hover {
+  background-color: var(--blanco);
+  color: var(--azul-oscuro);
+  transform: translateY(-2px);
+}
+
+/* Botón azul (se usa en el formulario de contacto) */
+.boton-azul {
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.boton-azul:hover {
+  background-color: var(--azul-oscuro);
+}
+
+/* ---------- AJUSTES PARA CELULARES ---------- */
+@media (max-width: 768px) {
+  .seccion {
+    padding: 60px 0;
+  }
+  .titulo-seccion {
+    font-size: 1.7rem;
+  }
+}

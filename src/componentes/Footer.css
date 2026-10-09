@@ -1,0 +1,109 @@
+/* ===== ESTILOS DEL PIE DE PÁGINA ===== */
+
+.pie {
+  background-color: #0d2440; /* Azul aún más oscuro que el de las secciones */
+  color: #c6d4e3;
+  padding-top: 60px;
+}
+
+/* Cuatro columnas que se acomodan solas en pantallas pequeñas */
+.pie-contenido {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 36px;
+  padding-bottom: 45px;
+}
+
+.pie-columna p {
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+}
+
+/* El logo es azul sobre fondo blanco, por eso se le pone un fondo claro */
+.pie-logo {
+  height: 62px;
+  background-color: var(--blanco);
+  border-radius: 10px;
+  padding: 6px 12px;
+  margin-bottom: 18px;
+}
+
+.pie-columna h4 {
+  color: var(--blanco);
+  font-size: 1rem;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Rayita amarilla debajo de cada título del footer */
+.pie-columna h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34px;
+  height: 3px;
+  background-color: var(--amarillo);
+  border-radius: 3px;
+}
+
+.pie-columna ul li {
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+}
+
+.pie-columna ul li a:hover {
+  color: var(--amarillo);
+}
+
+/* Lista de contacto con iconos */
+.pie-contacto li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pie-contacto li svg {
+  color: var(--amarillo);
+  flex-shrink: 0;
+}
+
+/* Botón redondo de Instagram */
+.pie-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--blanco);
+  transition: all 0.25s ease;
+}
+
+.pie-red:hover {
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+  border-color: var(--amarillo);
+}
+
+/* Franja final */
+.pie-final {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 20px 0;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .pie-contenido {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .pie-contenido {
+    grid-template-columns: 1fr;
+  }
+}

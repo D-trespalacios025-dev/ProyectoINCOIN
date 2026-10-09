@@ -1,0 +1,173 @@
+/* ===== ESTILOS DE LA BARRA DE NAVEGACIÓN ===== */
+
+/* El navbar queda fijo arriba aunque el usuario baje la página */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Se muestra por encima del resto del contenido */
+  background-color: var(--blanco);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Sombra que aparece cuando el usuario baja (estado "conScroll") */
+.navbar-scroll {
+  box-shadow: 0 4px 18px rgba(18, 49, 79, 0.12);
+}
+
+/* ---------- Barra superior azul con datos de contacto ---------- */
+.barra-superior {
+  background-color: var(--azul-oscuro);
+  color: #dbe6f2;
+  font-size: 0.85rem;
+}
+
+.barra-superior-contenido {
+  display: flex;
+  justify-content: flex-end;
+  gap: 26px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.barra-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: color 0.2s ease;
+}
+
+.barra-item:hover {
+  color: var(--amarillo);
+}
+
+/* Cuando el usuario baja, esta barra se esconde para ganar espacio */
+.navbar-scroll .barra-superior {
+  display: none;
+}
+
+/* ---------- Barra principal ---------- */
+.navbar-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.logo img {
+  height: 58px;
+  transition: height 0.3s ease;
+}
+
+.navbar-scroll .logo img {
+  height: 46px; /* El logo se hace más pequeño al bajar */
+}
+
+/* ---------- Menú de enlaces ---------- */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.enlace {
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+/* Línea amarilla que aparece debajo del enlace al pasar el mouse
+   o cuando esa sección es la que se está viendo */
+.enlace::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--amarillo);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.enlace:hover::after,
+.enlace.activo::after {
+  width: 100%;
+}
+
+.enlace.activo {
+  color: var(--azul-claro);
+}
+
+.boton-menu {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Botón hamburguesa (oculto en computador) ---------- */
+.boton-hamburguesa {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--azul-oscuro);
+  cursor: pointer;
+}
+
+/* ---------- VERSIÓN CELULAR / TABLET ---------- */
+@media (max-width: 992px) {
+  .barra-superior-contenido {
+    justify-content: center;
+    gap: 14px;
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .boton-hamburguesa {
+    display: block;
+  }
+
+  /* El menú se esconde arriba y se despliega al presionar la hamburguesa */
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--blanco);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(18, 49, 79, 0.1);
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+
+  /* Clase que se activa desde React cuando menuAbierto es true */
+  .menu-abierto {
+    max-height: 520px;
+    padding: 10px 20px 20px 20px;
+  }
+
+  .menu li {
+    width: 100%;
+    border-bottom: 1px solid var(--gris-borde);
+  }
+
+  .menu li:last-child {
+    border-bottom: none;
+    margin-top: 12px;
+  }
+
+  .enlace {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+  }
+}

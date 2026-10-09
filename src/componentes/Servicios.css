@@ -1,0 +1,68 @@
+/* ===== ESTILOS DE LA SECCIÓN SERVICIOS ===== */
+
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 26px;
+}
+
+.tarjeta-servicio {
+  background-color: var(--blanco);
+  border-radius: var(--radio);
+  padding: 34px 28px;
+  border-top: 5px solid var(--azul-claro);
+  box-shadow: var(--sombra);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-servicio:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-fuerte);
+}
+
+/* Círculo azul donde va el icono */
+.servicio-icono {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--azul-oscuro);
+  color: var(--amarillo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: background-color 0.25s ease;
+}
+
+.tarjeta-servicio:hover .servicio-icono {
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+}
+
+.tarjeta-servicio h3 {
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.servicio-descripcion {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+/* Lista de actividades con el chulito verde/azul */
+.servicio-items li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.92rem;
+  color: var(--texto);
+  padding: 6px 0;
+  border-top: 1px dashed var(--gris-borde);
+}
+
+.servicio-items li svg {
+  color: var(--azul-claro);
+  flex-shrink: 0;
+}

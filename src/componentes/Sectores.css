@@ -1,0 +1,76 @@
+/* ===== ESTILOS DE LA SECCIÓN SECTORES ===== */
+
+.grid-sectores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 22px;
+}
+
+.tarjeta-sector {
+  position: relative;
+  height: 280px;
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  display: flex;
+  align-items: flex-end; /* El texto queda abajo */
+}
+
+/* Foto de fondo */
+.sector-fondo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.tarjeta-sector:hover .sector-fondo {
+  transform: scale(1.1); /* Zoom suave al pasar el mouse */
+}
+
+/* Capa de color azul encima de la foto */
+.sector-capa {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(18, 49, 79, 0.95) 0%,
+    rgba(18, 49, 79, 0.55) 55%,
+    rgba(18, 49, 79, 0.25) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.tarjeta-sector:hover .sector-capa {
+  background: linear-gradient(
+    to top,
+    rgba(18, 49, 79, 0.97) 0%,
+    rgba(18, 49, 79, 0.8) 60%,
+    rgba(18, 49, 79, 0.5) 100%
+  );
+}
+
+/* Texto e icono (van encima de todo por el z-index) */
+.sector-contenido {
+  position: relative;
+  z-index: 2;
+  padding: 26px;
+  color: var(--blanco);
+}
+
+.sector-contenido svg {
+  color: var(--amarillo);
+  margin-bottom: 12px;
+}
+
+.sector-contenido h3 {
+  color: var(--blanco);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.sector-contenido p {
+  font-size: 0.93rem;
+  color: #d8e3ef;
+}
